@@ -184,50 +184,55 @@ const books = [
 ];
 
 // ==============================
-// REVISION SECTIONS
+// REVISION NOTES
 // ==============================
+// Study tip: uncomment one example at a time.
+// Focus on one concept, run it, and then move to the next.
 
 // ==============================
-// ARRAY DESTRUCTURING
+// 1) ARRAY DESTRUCTURING
 // ==============================
-// Destructuring two books
+// Goal: unpack values from an array quickly.
+// Example: take the first two books from the array.
 // const [firstBook, secondBook] = books;
 // console.log(firstBook, secondBook);
 
-// Destructuring while skipping the first two books
+// Example: skip the first two books and take the third.
 // const [, , thirdBooks] = books;
 // console.log(thirdBooks);
 
-// Nested array destructuring
+// Example: destructure nested arrays.
 // const ratings = [['rating', 4.19], ['ratingsCount', 144584]];
 // const [[, rating], [, ratingsCount]] = ratings;
 // console.log(rating, ratingsCount);
 
 // ==============================
-// OBJECT DESTRUCTURING
+// 2) OBJECT DESTRUCTURING
 // ==============================
+// Goal: unpack values from an object quickly.
+// Example: take title, author, and ISBN directly.
 // let { title, author, ISBN } = books[0];
 // console.log(title, author, ISBN);
 
-// Renaming object properties during destructuring
+// Example: rename a property while destructuring.
 // let { keywords: tags } = books[0];
 // console.log(tags);
 
-// Providing default values
+// Example: give a fallback value if a property is missing.
 // let { language, programmingLanguage = 'unknown' } = books[6];
 // console.log(language, programmingLanguage);
 
-// Reassigning destructured values to variables
+// Example: reassign values into new variables.
 // let bookTitle = 'unknown';
 // let bookAuthor = 'unknown';
 // ({ title: bookTitle, author: bookAuthor } = books[0]);
 // console.log(bookTitle, bookAuthor);
 
-// Deep destructuring
+// Example: destructure deeply nested data.
 // const { thirdParty: { goodreads: { rating: bookRating } } } = books[0];
 // console.log(bookRating);
 
-// Function parameter destructuring
+// Example: destructure function parameters.
 // const printBookInfo = ({ title, author, year = 'unknown year' }) => {
 //   console.log(`${title} by ${author}, ${year}`);
 // };
@@ -238,53 +243,116 @@ const books = [
 // prinBookInfo({ title: 'Algorithms', author: 'Robert Sedgewick' });
 
 // ==============================
-// SPREAD / REST OPERATORS
+// 3) SPREAD / REST OPERATORS
 // ==============================
-/**
- * Spread operator
- * const bookAuthors = [...books[0].author, ...books[1].author];
- * console.log(bookAuthors);
- *
- * function spellWord(str) {
- *   console.log(...str);
- * }
- *
- * spellWord('javascript');
- */
+// Goal: expand arrays and collect extra values.
+// Spread example: combine authors from two books.
+// const bookAuthors = [...books[0].author, ...books[1].author];
+// console.log(bookAuthors);
 
-/**
- * Rest parameters
- * console.log(typeof books[0].keywords);
- * const [mainKeyword, ...rest] = books[0].keywords;
- * console.log(mainKeyword, rest);
- *
- * const { publisher: bookPublisher, ...restOfTheBook } = books[1];
- * console.log(bookPublisher);
- *
- * function printBookAuthorsCount(title, ...authors) {
- *   console.log(`The book "${title}" has ${authors.length} authors`);
- * }
- * printBookAuthorsCount('Algorithms', 'Robert Sedgewick', 'Kevin Wayne');
- */
+// Spread example: split a string into characters.
+// function spellWord(str) {
+//   console.log(...str);
+// }
+// spellWord('javascript');
+
+// Rest example: collect the remaining keywords.
+// console.log(typeof books[0].keywords);
+// const [mainKeyword, ...rest] = books[0].keywords;
+// console.log(mainKeyword, rest);
+
+// Rest example: collect the remaining object properties.
+// const { publisher: bookPublisher, ...restOfTheBook } = books[1];
+// console.log(bookPublisher);
+
+// Rest example: collect all extra function arguments.
+// function printBookAuthorsCount(title, ...authors) {
+//   console.log(`The book "${title}" has ${authors.length} authors`);
+// }
+// printBookAuthorsCount('Algorithms', 'Robert Sedgewick', 'Kevin Wayne');
 
 // ==============================
 // OPTIONAL CHAINING / NULLISH COALESCING
 // ==============================
-const hasExamplesInJava = books[0]?.keywords?.includes('java');
-console.log(hasExamplesInJava);
+// const hasExamplesInJava = books[0]?.keywords?.includes('java');
+// console.log(hasExamplesInJava);
 
-for (let i = 0; i < books.length; i++) {
-  books[i].onlineContent && console.log(`${books[i].title} provides online content`);
-}
+// for (let i = 0; i < books.length; i++) {
+//   books[i].onlineContent && console.log(`${books[i].title} provides online content`);
+// }
 
-for (const book of books) {
-  const content = book.onlineContent ?? 'Missing';
-  console.log(content);
+// for (const book of books) {
+//   const content = book.onlineContent ?? 'Missing';
+//   console.log(content);
 
-  if (content == 'Missing') {
-    console.log(`${book.title} provides no data about its online content`);
-  }
-}
+//   if (content == 'Missing') {
+//     console.log(`${book.title} provides no data about its online content`);
+//   }
+// }
+
+// ==============================
+// 4) LOOPS AND DATA COLLECTION
+// ==============================
+// Goal: practice loops and collect values from objects.
+// Example: sum all page counts.
+// let pageSum = 0;
+// for (const { pages } of books) {
+//   pageSum += pages;
+// }
+// console.log(pageSum);
+
+// Example: collect all authors into one array.
+// const allAuthors = [];
+// for (const { author } of books) {
+//   if (typeof author === 'string') {
+//     allAuthors.push(author);
+//   } else {
+//     for (let authors of author) {
+//       allAuthors.push(authors);
+//     }
+//   }
+// }
+// console.log(allAuthors);
+
+// Example: print authors with index numbers.
+// const allAuthors = [];
+// for (const { author } of books) {
+//   if (typeof author === 'string') {
+//     allAuthors.push(author);
+//   } else {
+//     for (let authors of author) {
+//       allAuthors.push(authors);
+//     }
+//   }
+// }
+// for (const [index, value] of allAuthors.entries()) {
+//   console.log(`${index + 1}: ${value}`);
+// }
+
+// ==============================
+// 5) COMPUTED PROPERTY NAMES
+// ==============================
+// Goal: create object keys dynamically.
+// Example: build an object from a key-value array.
+// const bookData = [
+//   ['title', 'Computer Networking: A Top-Down Approach'],
+//   ['author', ['James F. Kurose', 'Keith W. Ross']],
+//   ['publisher', 'Addison Wesley'],
+// ];
+// const newBook = Object.fromEntries(bookData);
+// console.log('Computed property example:', newBook);
+
+// Example: use shorthand property names.
+// const pages = 880;
+// const newBook2 = {
+//   title: 'The C Programming Language',
+//   author: ['Brian W. Kernighan', 'Dennis M. Ritchie'],
+//   pages,
+// };
+// console.log('Property shorthand example:', newBook2);
+
+
+
 
 
 
