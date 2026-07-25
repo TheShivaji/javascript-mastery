@@ -351,6 +351,61 @@ const books = [
 // };
 // console.log('Property shorthand example:', newBook2);
 
+// const entries = [];
+
+// for (const key of Object.keys(books[0].thirdParty.goodreads)) {
+//   entries.push([key]);
+// }
+
+// for (const [index, value] of Object.values(
+//   books[0].thirdParty.goodreads
+// ).entries()) {
+//   entries[index].push(value);
+// }
+
+// console.log(entries);
+
+
+// const entries2 = Object.entries(books[0].thirdParty.goodreads );
+
+// console.log(entries2)
+
+const users = [
+  {
+    id: 1,
+    name: "Shivaji",
+    skills: ["JS", "React", "Node"],
+    marks: { js: 90, react: 85, node: 88 },
+  },
+  {
+    id: 2,
+    name: "Rahul",
+    skills: ["JS", "Python", "React"],
+    marks: { js: 70, react: 60, node: 50 },
+  },
+];
+
+const out = Object.entries(users[0].marks)
+console.log(out)
+
+const uniqueSkill = [...new Set([users[0].skills , users[1].skills].flat())]
+
+console.log(uniqueSkill)
+
+const user2 = {...users[1] , age:20}
+
+console.log(user2)
+
+const {name ,marks:{index , }} = users[0]
+console.log(name , keys , value)
+
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Mastery - Premium LinkedIn Carousel Builder</title>
+  <link rel="stylesheet" href="theme.css?v=12">
+</head>
+<body>
+  <!-- Annotation Arrow Defs -->
+  <svg style="position: absolute; width: 0; height: 0;" aria-hidden="true">
+    <defs>
+      <marker id="arrow-head" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#FFFFFF" />
+      </marker>
+      <marker id="arrow-head-yellow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent-yellow)" />
+      </marker>
+    </defs>
+  </svg>
+
+  <div class="app-layout">
+    
+    <!-- Sidebar Controls -->
+    <aside class="app-sidebar no-print">
+      <div class="sidebar-header">
+        <div class="brand-title">
+          <div class="brand-dot"></div>
+          <span>JS MASTERY</span>
+        </div>
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Developer Design System v1.0</p>
+      </div>
+      
+      <div class="sidebar-content">
+        <h3 class="sidebar-title">Carousel Slides</h3>
+        <ul class="slide-nav-list" id="slide-nav-list">
+          <!-- Dynamically inserted list items -->
+        </ul>
+      </div>
+      
+      <div class="sidebar-footer">
+        <button class="btn btn-primary" id="btn-print">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          Export PDF (Print)
+        </button>
+        
+        <div style="display: flex; gap: 8px; margin-top: 12px;">
+          <button class="btn" id="btn-prev" style="flex: 1;" title="Previous Slide (Left Arrow)">◀ Prev</button>
+          <button class="btn" id="btn-next" style="flex: 1;" title="Next Slide (Right Arrow)">Next ▶</button>
+        </div>
+      </div>
+    </aside>
+    
+    <!-- Workspace Area -->
+    <main class="app-workspace">
+      <header class="workspace-header no-print">
+        <div style="display: flex; flex-direction: column;">
+          <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">ACTIVE EDITION</span>
+          <span style="font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Execution Context & Call Stack</span>
+        </div>
+        
+        <div class="view-controls">
+          <label class="toggle-switch">
+            <input type="checkbox" class="toggle-input" id="toggle-grid">
+            <span class="toggle-slider"></span>
+            <span>Grid Overlay</span>
+          </label>
+        </div>
+      </header>
+      
+      <!-- Interactive Preview Sandbox -->
+      <div class="preview-container">
+        <div class="viewport-sandbox">
+          
+          <!-- Slide Rendering Target -->
+          <div class="slides-container" id="slides-container">
+            <!-- Dynamically populated from JS -->
+          </div>
+          
+          <!-- Layout Grid & Safe Margins Box -->
+          <div class="safety-overlay" id="safety-overlay">
+            <div class="grid-cols-12">
+              <div class="grid-col-guide"></div>
+              <div class="grid-col-guide"></div>
+              <div class="grid-col-guide"></div>
+              <div class="grid-col-guide"></div>
+              <div class="grid-col-guide"></div>
+              <div class="grid-col-guide"></div>
+              <div class="grid-col-guide"></div>
+              <div class="grid-col-guide"></div>
+              <div class="grid-col-guide"></div>
+              <div class="grid-col-guide"></div>
+              <div class="grid-col-guide"></div>
+              <div class="grid-col-guide"></div>
+            </div>
+            <div class="safety-margin-box"></div>
+          </div>
+          
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Print Layout Wrapper (Only Visible During Print window.print()) -->
+  <div class="print-layout-wrapper" id="print-layout-wrapper">
+    <!-- Duplicate or fallback slides printed here natively -->
+  </div>
+
+  <script src="slides.js?v=12"></script>
+  <script src="previewer.js?v=12"></script>
+</body>
+</html>
