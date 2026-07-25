@@ -48,9 +48,9 @@ A structured, logical path to JavaScript engineering excellence.
 - [x] **06. Objects** — Key-value pair storage, accessors, context scope (`this`), and object methods.
 - [x] **07. Loops** — Loops (`for`, `while`), loop nesting, control statements, and array iteration.
 - [x] **08. Problem Solving** — Formulating solutions, data transformations, and algorithm structuring.
-- [ ] **09. Strings & RegEx** — Regular expressions and advanced string mutations.
-- [ ] **10. DOM & Event Handling** — Interacting with markup and dynamic page manipulation.
-- [ ] **11. OOP & Classes** — Prototypal inheritance, ES6 classes, instantiation, and encapsulation.
+- [x] **09. DOM Basics & Projects** — DOM selection, event handling, and interactive mini-projects.
+- [x] **10. Data Structures, Modern Operators & Strings** — Destructuring, spread/rest, string methods, and modern JS patterns.
+- [x] **11. Closures & Function Behavior** — Scope, references, mutability, and practical function patterns.
 - [ ] **12. Async JavaScript** — Event Loop, Promises, `async/await`, and concurrency models.
 - [ ] **13. Modern ES6+ & Modules** — Destructuring, spread/rest, optional chaining, and modular architecture.
 
@@ -80,9 +80,17 @@ javascript-mastery/
 │   └── challenge-04.js          # Custom array average calculators
 ├── Day-08-Coding-Challenges/
 │   └── challenge-01.js          # Premium Cricket Score Analyzer tool
+├── Day-9-DOM-Basics-Project/
+│   ├── Project-01/
+│   └── Project-02/
+├── Day-10-Data-Structures-Moderns-Operators-And-String/
+│   ├── index.html
+│   └── main.js
+├── Day-11-Closer/
+│   ├── index.html
+│   └── main.js
 └── README.md
 ```
-
 ---
 
 ## 📆 Daily Progress Tracker
@@ -95,8 +103,11 @@ javascript-mastery/
 | **04** | Functions | [challenge-01.js](file:///d:/Learning/javaScript%20jorney/javascript-mastery/Day-04-Functions/challenge-01.js), [challenge-02.js](file:///d:/Learning/javaScript%20jorney/javascript-mastery/Day-04-Functions/challenge-02.js) | Function arguments, modular returns | `✅ Complete` |
 | **05** | Arrays | [challenge-01.js](file:///d:/Learning/javaScript%20jorney/javascript-mastery/Day-05-Arrays/challenge-01.js) | Array declarations, dynamic tip push | `✅ Complete` |
 | **06** | Objects | [challenge-01.js](file:///d:/Learning/javaScript%20jorney/javascript-mastery/Day-06-Objects/challenge-01.js) | Execution context `this`, BMI structures | `✅ Complete` |
-| **07** | Loops | `challenge-0[1-4].js` | Loops, array averaging, sum computations | `✅ Complete` |
-| **08** | Coding Challenges | [challenge-01.js](file:///d:/Learning/javaScript%20jorney/javascript-mastery/Day-08-Coding-Challenges/challenge-01.js) | Cricket analyzer algorithm, statistics | `✅ Complete` |
+| **07** | Loops | [challenge-01.js](Day-07-Loops/challenge-01.js), [challenge-02.js](Day-07-Loops/challenge-02.js), [challenge-03.js](Day-07-Loops/challenge-03.js), [challenge-04.js](Day-07-Loops/challenge-04.js) | Loops, array averaging, sum computations | `✅ Complete` |
+| **08** | Coding Challenges | [challenge-01.js](Day-08-Coding-Challenges/challenge-01.js) | Cricket analyzer algorithm, statistics | `✅ Complete` |
+| **09** | DOM Basics Project | [Project-01/index.html](Day-9-DOM-Basics-Project/Project-01/index.html), [Project-02/index.html](Day-9-DOM-Basics-Project/Project-02/index.html) | DOM selection, events, and mini UI projects | `✅ Complete` |
+| **10** | Data Structures & Modern Operators | [main.js](Day-10-Data-Structures-Moderns-Operators-And-String/main.js) | Destructuring, spread/rest, strings, and modern JS patterns | `✅ Complete` |
+| **11** | Closers & Function Behavior | [main.js](Day-11-Closer/main.js) | References, mutability, and practical function patterns | `✅ Complete` |
 
 ---
 
@@ -145,7 +156,7 @@ To execute any daily practice script locally:
    ```bash
    node Day-08-Coding-Challenges/challenge-01.js
    ```
-   
+
 ---
 
 
