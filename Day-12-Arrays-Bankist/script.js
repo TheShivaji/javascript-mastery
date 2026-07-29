@@ -80,12 +80,21 @@ const createMovements = function (mov) {
 
 createMovements(account1.movements)
 
+const displayTotalDiposit = (mov) =>{
+  console.log(mov)
+const totalBalance = mov.reduce(function( acc , cur){
+
+return acc + cur
+} ,0)
+labelBalance.textContent = `${totalBalance}$`
+}
+displayTotalDiposit(account1.movements)
+
 const createUsername = function(accs){
 accs.forEach((acc) =>{
 acc.username = acc.owner.toLowerCase().split(' ').map((name) => name[0]).join("")
 })
 }
-console.log(accounts)
 createUsername(accounts)
 
 

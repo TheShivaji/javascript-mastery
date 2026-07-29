@@ -1,203 +1,272 @@
-// // =========================
-// // 1) Default Parameters
-// // =========================
-// const bookings = [];
+// // // =========================
+// // // 1) Default Parameters
+// // // =========================
+// // const bookings = [];
 
-// const createBooking = (
-//   flightNumber,
-//   numberOfPassengers = 1,
-//   price = 500 * numberOfPassengers
-// ) => {
-//   const booking = { flightNumber, numberOfPassengers, price };
-//   bookings.push(booking);
-// };
+// // const createBooking = (
+// //   flightNumber,
+// //   numberOfPassengers = 1,
+// //   price = 500 * numberOfPassengers
+// // ) => {
+// //   const booking = { flightNumber, numberOfPassengers, price };
+// //   bookings.push(booking);
+// // };
 
-// createBooking("AI101");
-// createBooking("AI102", 3);
-// createBooking("AI103", 6, 4000);
+// // createBooking("AI101");
+// // createBooking("AI102", 3);
+// // createBooking("AI103", 6, 4000);
 
-// console.log("Bookings:", bookings);
+// // console.log("Bookings:", bookings);
 
-// // =========================
-// // 2) Objects and References
-// // =========================
-// const person = {
-//   name: "Shivaji",
-//   passport: 123456789,
-// };
-
-// function changePerson(person) {
-//   person = {
-//     name: "AI Engineer",
-//     passport: 111111111,
-//   };
-// }
-
-// changePerson(person);
-// console.log("After changePerson:", person);
-
-// // =========================
-// // 3) Mutating an Object
-// // =========================
-// function renewPassport(person) {
-//   person.passport = Math.trunc(Math.random() * 10000000000);
-// }
-
-// renewPassport(person);
-// console.log("After renewPassport:", person);
-
-// // =========================
-// // 4) Check-in Example
-// // =========================
-// // const shivaji = {
-// //   name: "Shivaji Jagdale",
+// // // =========================
+// // // 2) Objects and References
+// // // =========================
+// // const person = {
+// //   name: "Shivaji",
 // //   passport: 123456789,
 // // };
 
-// // const rahul = {
-// //   name: "Rahul Patil",
-// //   passport: 987654321,
-// // };
-
-// // function checkIn(flightNum, passenger) {
-// //   passenger.name = "Mr. " + passenger.name;
-// //   const isValid = passenger.passport === 123456789;
-
-// //   console.log(
-// //     `${flightNum}: ${isValid ? "Check In Successful" : "Wrong Passport"}`
-// //   );
+// // function changePerson(person) {
+// //   person = {
+// //     name: "AI Engineer",
+// //     passport: 111111111,
+// //   };
 // // }
 
-// // checkIn("AI101", shivaji);
-// // checkIn("AI102", rahul);
+// // changePerson(person);
+// // console.log("After changePerson:", person);
 
 // // // =========================
-// // // 5) Practice Function
+// // // 3) Mutating an Object
 // // // =========================
-// // function newPassport(person) {
-// //   person.passport = 999999999;
+// // function renewPassport(person) {
+// //   person.passport = Math.trunc(Math.random() * 10000000000);
 // // }
 
-// // newPassport(shivaji);
-// // console.log("Updated passport:", shivaji.passport);
+// // renewPassport(person);
+// // console.log("After renewPassport:", person);
+
+// // // =========================
+// // // 4) Check-in Example
+// // // =========================
+// // // const shivaji = {
+// // //   name: "Shivaji Jagdale",
+// // //   passport: 123456789,
+// // // };
+
+// // // const rahul = {
+// // //   name: "Rahul Patil",
+// // //   passport: 987654321,
+// // // };
+
+// // // function checkIn(flightNum, passenger) {
+// // //   passenger.name = "Mr. " + passenger.name;
+// // //   const isValid = passenger.passport === 123456789;
+
+// // //   console.log(
+// // //     `${flightNum}: ${isValid ? "Check In Successful" : "Wrong Passport"}`
+// // //   );
+// // // }
+
+// // // checkIn("AI101", shivaji);
+// // // checkIn("AI102", rahul);
+
+// // // // =========================
+// // // // 5) Practice Function
+// // // // =========================
+// // // function newPassport(person) {
+// // //   person.passport = 999999999;
+// // // }
+
+// // // newPassport(shivaji);
+// // // console.log("Updated passport:", shivaji.passport);
 
 
-// const users = [
-//   { id: 1, name: "Shivaji Jagdale" },
-//   { id: 2, name: "Virat Kohli" },
-//   { id: 3, name: "Rohit Sharma" },
-//   { id: 4, name: "Hardik Pandya" },
+// // const users = [
+// //   { id: 1, name: "Shivaji Jagdale" },
+// //   { id: 2, name: "Virat Kohli" },
+// //   { id: 3, name: "Rohit Sharma" },
+// //   { id: 4, name: "Hardik Pandya" },
+// // ];
+
+// // users.forEach(function(user) {
+// // user.username = user.name.toLowerCase().split(" ").
+// // map((username) => {
+// //   return username[0]
+// // }).join('')
+// // })
+// // console.log(users)
+
+// //Email Generator (map)
+// // const users = [
+// //   {
+// //     firstName: "Virat",
+// //     lastName: "Kohli",
+// //   },
+// //   {
+// //     firstName: "Rohit",
+// //     lastName: "Sharma",
+// //   },
+// //   {
+// //     firstName: "Hardik",
+// //     lastName: "Pandya",
+// //   },
+// // ];
+
+// // const emailGen = users.map(function(user) {
+// //   const userFirst = user.firstName.toLowerCase();
+// //   const userLast = user.lastName.toLowerCase()
+// //   return `${userFirst +'.' +userLast + "@gmail.com"}`
+// // })
+
+
+// // console.log(emailGen)
+
+// // const cart = [
+// //   {
+// //     product: "Laptop",
+// //     price: 60000,
+// //     quantity: 1,
+// //   },
+// //   {
+// //     product: "Mouse",
+// //     price: 800,
+// //     quantity: 2,
+// //   },
+// //   {
+// //     product: "Keyboard",
+// //     price: 2000,
+// //     quantity: 3,
+// //   },
+// // ];
+
+// // const cartWithTotal = cart.map((product) => {
+// //   return {
+// //     ...product,
+// //     total: product.price * product.quantity,
+// //   };
+// // });
+
+// // console.log(cartWithTotal);
+// // console.log(cart);
+
+// //Employee Bonus System ⭐⭐⭐
+// const employees = [
+//   {
+//     id: 1,
+//     name: "Virat",
+//     department: "Engineering",
+//     salary: 90000,
+//   },
+//   {
+//     id: 2,
+//     name: "Rohit",
+//     department: "HR",
+//     salary: 45000,
+//   },
+//   {
+//     id: 3,
+//     name: "Gill",
+//     department: "Engineering",
+//     salary: 120000,
+//   },
+//   {
+//     id: 4,
+//     name: "Hardik",
+//     department: "Sales",
+//     salary: 70000,
+//   },
 // ];
 
-// users.forEach(function(user) {
-// user.username = user.name.toLowerCase().split(" ").
-// map((username) => {
-//   return username[0]
-// }).join('')
-// })
-// console.log(users)
-
-//Email Generator (map)
-// const users = [
-//   {
-//     firstName: "Virat",
-//     lastName: "Kohli",
-//   },
-//   {
-//     firstName: "Rohit",
-//     lastName: "Sharma",
-//   },
-//   {
-//     firstName: "Hardik",
-//     lastName: "Pandya",
-//   },
-// ];
-
-// const emailGen = users.map(function(user) {
-//   const userFirst = user.firstName.toLowerCase();
-//   const userLast = user.lastName.toLowerCase()
-//   return `${userFirst +'.' +userLast + "@gmail.com"}`
-// })
+// // const newSystem = employees.map((employee) => {
+// //   let bonus;
+// //   let department = employee.department
+// //   let grade = department == "Engineering" ? "A" : department == "Sales" ? "B" : department == "HR" ? "C" : "no department grade is available"
+// //   let salary = employee.salary
+// //   if (salary >= 100000) {
+// //     bonus = salary * 20 / 100
+// //   } else if (salary >= 70000) {
+// //     bonus = salary * 10 / 100
+// //   } else {
+// //     bonus = salary * 5 / 100
+// //   }
+// //   return {
+// //     ...employee,
+// //     bonus: bonus,
+// //     finalSalary: salary + bonus,
+// //     grade,
 
 
-// console.log(emailGen)
+// //   }
+// // })
+// // console.log(newSystem)
 
-// const cart = [
-//   {
-//     product: "Laptop",
-//     price: 60000,
-//     quantity: 1,
-//   },
-//   {
-//     product: "Mouse",
-//     price: 800,
-//     quantity: 2,
-//   },
-//   {
-//     product: "Keyboard",
-//     price: 2000,
-//     quantity: 3,
-//   },
-// ];
 
-// const cartWithTotal = cart.map((product) => {
-//   return {
-//     ...product,
-//     total: product.price * product.quantity,
-//   };
-// });
+//Question 1
+const numbers = [10, 20, 30, 40, 50];
 
-// console.log(cartWithTotal);
-// console.log(cart);
+const totalNumber = numbers.reduce(function (acc, num) {
+  return acc + num
+}, 0)
 
-//Employee Bonus System ⭐⭐⭐
-const employees = [
-  {
-    id: 1,
-    name: "Virat",
-    department: "Engineering",
-    salary: 90000,
-  },
-  {
-    id: 2,
-    name: "Rohit",
-    department: "HR",
-    salary: 45000,
-  },
-  {
-    id: 3,
-    name: "Gill",
-    department: "Engineering",
-    salary: 120000,
-  },
-  {
-    id: 4,
-    name: "Hardik",
-    department: "Sales",
-    salary: 70000,
-  },
+// console.log(totalNumber)
+
+// Question 2
+
+const ages = [18, 25, 32, 19, 21];
+
+const avarageAge = ages.reduce(function (acc, age) {
+  return acc + age / ages.length
+}, 0)
+
+// console.log(avarageAge)
+
+// Question 3
+const salaries = [25000, 30000, 45000, 50000];
+
+const highestSalary = salaries.reduce((max, current) => {
+  return current > max ? current : max;
+}, salaries[0]);
+
+// console.log(highestSalary); // Output: 50000
+
+// Question 4
+const movements = [200, -100, 300, -50, 400, -250];
+
+const deposit = movements.reduce((max, curr) => {
+  return current = curr > 0 ? max + curr : max
+
+})
+
+// console.log(current)
+
+// Question 5
+
+const carts = [
+  { name: "Laptop", price: 60000 },
+  { name: "Mouse", price: 800 },
+  { name: "Keyboard", price: 2500 },
 ];
 
-const newSystem = employees.map((employee) => {
-  let bonus;
-  let department = employee.department
-  let grade = department == "Engineering" ? "A" : department == "Sales" ? "B" : department == "HR" ? "C" : "no department grade is available"
-  let salary = employee.salary
-  if (salary >= 100000) {
-    bonus = salary * 20 / 100
-  } else if (salary >= 70000) {
-    bonus = salary * 10 / 100
-  } else {
-    bonus = salary * 5 / 100
-  }
-  return {
-    ...employee,
-    bonus: bonus,
-    finalSalary: salary + bonus,
-    grade,
+const totalPrice = carts.reduce(function (max, cart) {
+  const { price } = cart
+  return max + price
+
+}, 0)
+// console.log(totalPrice)
 
 
-  }
-})
-console.log(newSystem)
+// Question 6
+const cart = [
+  { name: "Laptop", price: 60000, qty: 1 },
+  { name: "Mouse", price: 800, qty: 2 },
+  { name: "Keyboard", price: 2500, qty: 3 },
+];
+
+const total = cart.reduce(function (max, cart) {
+  const { price, qty } = cart
+  return max + price * qty
+}, 0)
+
+console.log(total)
 
