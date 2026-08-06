@@ -78,25 +78,75 @@ const createMovements = function (mov) {
   })
 }
 
-createMovements(account1.movements)
 
-const displayTotalDiposit = (mov) =>{
+
+const displayTotalDiposit = (mov) => {
   console.log(mov)
-const totalBalance = mov.reduce(function( acc , cur){
+  const totalBalance = mov.reduce(function (acc, cur) {
 
-return acc + cur
-} ,0)
-labelBalance.textContent = `${totalBalance}$`
+    return acc + cur
+  }, 0)
+  labelBalance.textContent = `${totalBalance}$`
 }
-displayTotalDiposit(account1.movements)
 
-const createUsername = function(accs){
-accs.forEach((acc) =>{
-acc.username = acc.owner.toLowerCase().split(' ').map((name) => name[0]).join("")
-})
+
+const createUsername = function (accs) {
+  accs.forEach((acc) => {
+    acc.username = acc.owner.toLowerCase().split(' ').map((name) => name[0]).join("")
+  })
 }
 createUsername(accounts)
 
+const displayDetails = function (movements) {
+
+  const income = movements.filter(mov => mov > 0).reduce((acc, mov) => {
+    return acc + mov
+  }, 0)
+  labelSumIn.textContent = income
+
+  const outcome = movements.filter(mov => mov < 0).reduce((acc, mov) => {
+    return acc + mov
+  }, 0)
+  labelSumOut.textContent = outcome
+
+  const interest = movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * 1.2) / 100)
+    .filter((int, i, arr) => {
+      // console.log(arr);
+      return int >= 1;
+    })
+    .reduce((acc, int) => acc + int, 0);
+  labelSumInterest.textContent = `${interest}€`;
+
+}
+
+
+let currentUser;
+btnLogin.addEventListener('click', (e) => {
+  e.preventDefault()
+
+  currentUser = accounts.find(acc => acc.username === inputLoginUsername.value )
+
+  if(currentUser?.pin === Number(inputLoginPin.value)){
+    labelWelcome.textContent = `Welcome back ${currentUser.owner.split(' ')[0]}`;
+      containerApp.style.opacity = 1;
+
+    // Clear input fields
+    inputLoginUsername.value = inputLoginPin.value = '';
+    inputLoginPin.blur();
+
+   displayDetails(currentUser.movements)
+
+   displayTotalDiposit(currentUser.movements)
+
+   containerMovements.innerHTML = '';
+   createMovements(currentUser.movements)
+    
+  }
+
+
+})
 
 
 
