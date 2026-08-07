@@ -80,14 +80,13 @@ const createMovements = function (mov) {
 
 
 
-const displayTotalDiposit = (mov) => {
-  console.log(mov)
-  const totalBalance = mov.reduce(function (acc, cur) {
+const displayBalance = function (acc) {
+  acc.balance = acc.movements.reduce((accumulator, mov) => {
+    return accumulator + mov;
+  }, 0);
 
-    return acc + cur
-  }, 0)
-  labelBalance.textContent = `${totalBalance}$`
-}
+  labelBalance.textContent = `${acc.balance}€`;
+};
 
 
 const createUsername = function (accs) {
@@ -120,33 +119,61 @@ const displayDetails = function (movements) {
   labelSumInterest.textContent = `${interest}€`;
 
 }
+function updateUI(acc) {
+  containerMovements.innerHTML = "";
 
+  createMovements(acc.movements);
+  displayDetails(acc.movements);
+  displayBalance(acc);
+}
 
 let currentUser;
 btnLogin.addEventListener('click', (e) => {
   e.preventDefault()
 
-  currentUser = accounts.find(acc => acc.username === inputLoginUsername.value )
+  currentUser = accounts.find(acc => acc.username === inputLoginUsername.value)
 
-  if(currentUser?.pin === Number(inputLoginPin.value)){
+  if (currentUser?.pin === Number(inputLoginPin.value)) {
     labelWelcome.textContent = `Welcome back ${currentUser.owner.split(' ')[0]}`;
-      containerApp.style.opacity = 1;
+    containerApp.style.opacity = 1;
 
     // Clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
 
-   displayDetails(currentUser.movements)
+    updateUI(currentUser)
 
-   displayTotalDiposit(currentUser.movements)
-
-   containerMovements.innerHTML = '';
-   createMovements(currentUser.movements)
-    
   }
-
-
 })
+btnTransfer.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputTransferAmount.value);
+
+  const receiver = accounts.find(
+    acc => acc.username === inputTransferTo.value.trim()
+  );
+
+  inputTransferTo.value = "";
+  inputTransferAmount.value = "";
+
+  if (
+    receiver &&
+    amount > 0 &&
+    receiver.username !== currentUser.username &&
+    currentUser.balance >= amount
+  ) {
+    currentUser.movements.push(-amount);
+    receiver.movements.push(amount);
+    console.log(currentUser)
+    updateUI(currentUser);
+    console.log(currentUser.movements);
+    console.log(currentUser.balance);
+  }
+});
+
+
+
 
 
 
