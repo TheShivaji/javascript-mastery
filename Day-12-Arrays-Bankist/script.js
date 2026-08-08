@@ -120,7 +120,7 @@ const displayDetails = function (movements) {
 
 }
 function updateUI(acc) {
-  containerMovements.innerHTML = "";
+
 
   createMovements(acc.movements);
   displayDetails(acc.movements);
@@ -172,6 +172,30 @@ btnTransfer.addEventListener("click", function (e) {
   }
 });
 
+btnLoan.addEventListener("click" , (e) =>{
+  e.preventDefault()
+  const  amount = Number(inputLoanAmount.value)
+
+  if(amount > 0 && currentUser.movements.some(mov => mov >= amount * 0.1)){
+    currentUser.movements.push(amount)
+    console.log(currentUser.mov)
+
+    updateUI(currentUser)
+
+  }
+})
+btnClose.addEventListener("click" , function(e){
+  e.preventDefault()
+  const pin = Number(inputClosePin.value)
+
+  if(currentUser.username == inputCloseUsername.value && currentUser.pin == pin ){
+
+    const user = accounts.findIndex(acc => acc.username == currentUser.username)
+
+    accounts.splice(user , 1)
+    containerApp.style.opacity = 0;
+  }
+})
 
 
 
