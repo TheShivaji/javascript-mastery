@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #333;
+  background-color: #f0f4f8;
+  min-height: 100vh;
+  padding: 4rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.header h1 {
+  font-size: 4rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.header p {
+  font-size: 1.8rem;
+  color: #7f8c8d;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.users-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center;
+  max-width: 120rem;
+  
+  /* Initial state for your JS */
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.user-card {
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.1);
+  width: 35rem;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+}
+
+.user-info {
+  background-color: #3498db;
+  color: white;
+  padding: 2.5rem;
+}
+
+.user-info h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+
+.user-info p {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.user-posts {
+  padding: 2.5rem;
+}
+
+.user-posts h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.user-posts ul {
+  list-style: none;
+}
+
+.user-posts li {
+  font-size: 1.4rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f1f2f6;
+  color: #555;
+}
+
+.user-posts li:last-child {
+  border-bottom: none;
+}
+
+.user-posts li::before {
+  content: '📝 ';
+}
